@@ -9,7 +9,7 @@
 
     <title>Document</title>
 </head>
-<body>
+<body class="body">
 <div class="flex-containter">
     <div class="title"><h1>SKETCH PAD</h1></div>
 
@@ -17,13 +17,18 @@
         <div class="grid"></div>
     </div>
 
-
+    <div class="colorPicker">
+        <p>HEX: <span id="hex"></span></p>
+        <input type="color" id="color">
+    </div>
     <div class="sizePicker">
-        <input type="range" min="16" max="128" value="32" class="slider" step="16" id="myRange" onchange="makeGrid(this.value)">
+        <input type="range" min="16" max="64" value="32" class="slider" step="16" id="myRange" onchange="makeGrid(this.value)">
         <button>Set Size</button>
         <p>Value: <span id="demo"></span></p>
     
     </div>
+
+
 </div>
 
 
