@@ -13,6 +13,7 @@
 //buttons
 //reset
 
+
 //SLIDER LOGIC
 var slider = document.getElementById("myRange");
 var output = document.getElementById("demo");
@@ -20,11 +21,32 @@ output.innerHTML = slider.value;  //innerHTML places default slider value inside
 
 slider.oninput = function() {
   output.innerHTML = this.value; //on moving the slider this funtion updates the value of the slide
-  console.log(slider.value);
- 
+  return (slider.value);
 }
-//SLDER LOGIC
+//SLiDER LOGIC
 
-function makeGrid () {
+//GRID
+function makeGrid(size) {
+let grid = document.querySelector(".grid");
+let square = grid.querySelectorAll("div");
+square.forEach((div) => div.remove());
+grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+let amount = size * size;
+for(let i=0; i<amount; i++) {
+    let square = document.createElement("div");
+    square.addEventListener("mouseover", colorSquare());
+    square.style.backgroundColor = "turquoise";
+    grid.insertAdjacentElement("beforeend", square);
+    }
+}
+makeGrid(16);
+
+function changeSize(input) {
+    makeGrid(input);
+}
+
+function colorSquare(color) {
+    square.style.backgroundColor="color"
 
 }
