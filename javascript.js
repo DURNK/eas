@@ -48,9 +48,9 @@ grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 let amount = size * size;                   
 for(let i=0; i<amount; i++) {
     let square = document.createElement("div"); // (1)
-    square.addEventListener("mouseover", colorSquare); 
+    square.addEventListener("mouseover", colorSquare); // on hover run function colorSquare
     square.style.backgroundColor = "white"; // background color for default squares
-    grid.insertAdjacentElement("beforeend", square);  //injects squares before the end 
+    grid.insertAdjacentElement("beforeend", square);  //injects squares before the end of grid div
     }
 }
 makeGrid(16);
@@ -60,7 +60,7 @@ function changeSize(input) {
 }
 //GRID
 function colorSquare() {
-    this.style.backgroundColor=colorInput.value;
+    this.style.backgroundColor=colorInput.value; // this refers to the context in which this function is run, this in this case means "SQUARE"
     console.log(colorInput.value);
 
 }
