@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 
 
@@ -11,12 +14,12 @@
 </head>
 <body class="body">
 <div class="flex-containter">
-    <div class="title"><h1>SKETCH PAD</h1></div>
+    <div class="title"><h1>//etch-a-sketch//</h1></div>
 
     <div class="container">
         <div class="grid"></div>
     </div>
-
+<div class="settings">
     <div class="colorPicker">
         <p>HEX: <span id="hex"></span></p>
         <input type="color" id="color">
@@ -24,8 +27,13 @@
     <div class="sizePicker">
         <input type="range" min="16" max="64" value="32" class="slider" step="16" id="myRange" onchange="makeGrid(this.value)">
         <p>Value: <span id="demo"></span></p>
-    
     </div>
+    <div class="buttons">
+        <button type="button" onclick="reset()">Reset Drawing</button>
+
+
+    </div>
+</div>
 
 
 </div>

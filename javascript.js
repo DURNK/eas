@@ -45,7 +45,7 @@ let square = grid.querySelectorAll("div"); // removes all divs before the (1) cr
 square.forEach((div) => div.remove());     // helps the grid to remain the correct size by resetting squares
 grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;  //creates the grid based on size variable
 grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
-let amount = size * size;                   
+let amount = size * size;               
 for(let i=0; i<amount; i++) {
     let square = document.createElement("div"); // (1)
     square.addEventListener("mouseover", colorSquare); // on hover run function colorSquare
@@ -64,3 +64,11 @@ function colorSquare() {
     console.log(colorInput.value);
 
 }
+
+function reset() {
+    let grid = document.querySelector(".grid");
+    let square = grid.querySelectorAll("div"); 
+    square.style.backgroundColor = "white";
+}
+
+//de adaugat butin de reset
