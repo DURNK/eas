@@ -15,6 +15,11 @@
 
 //GLOBAL VARIABLES
 let color;
+let size;
+let amount;
+let click = true;
+
+
 //SLIDER LOGIC
 var slider = document.getElementById("myRange");
 var output = document.getElementById("demo");
@@ -45,13 +50,14 @@ let square = grid.querySelectorAll("div"); // removes all divs before the (1) cr
 square.forEach((div) => div.remove());     // helps the grid to remain the correct size by resetting squares
 grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;  //creates the grid based on size variable
 grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
-let amount = size * size;               
+amount = size * size;               
 for(let i=0; i<amount; i++) {
     let square = document.createElement("div"); // (1)
     square.addEventListener("mouseover", colorSquare); // on hover run function colorSquare
     square.style.backgroundColor = "white"; // background color for default squares
     grid.insertAdjacentElement("beforeend", square);  //injects squares before the end of grid div
     }
+    return size;
 }
 makeGrid(16);
 
@@ -59,16 +65,52 @@ function changeSize(input) {
     makeGrid(input);
 }
 //GRID
-function colorSquare() {
-    this.style.backgroundColor=colorInput.value; // this refers to the context in which this function is run, this in this case means "SQUARE"
-    console.log(colorInput.value);
 
+function generateRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var randColor = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)]; // random color generator for rainbow mode
+  }
+  return randColor;
 }
+
+
+
+let colorSquareVariable = colorInput.value;
+function colorSquare() {
+  if (click) {
+    if (color === "random") {
+      this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+    } else {
+      this.style.backgroundColor = color;
+    }
+  }
+}
+  console.log(colorSquareVariable);
+  console.log(colorInput.value);
+//console.log(generateRandomColor())
+
+function changeColor(choice) {
+  color = choice;
+}
+
+document.querySelector("body").addEventListener("click" , () => {
+  click=!click;
+});
+
+
+
+  
 
 function reset() {
-    let grid = document.querySelector(".grid");
-    let square = grid.querySelectorAll("div"); 
-    square.style.backgroundColor = "white";
+  let board = document.querySelector(".board");
+  let squares = board.querySelectorAll("div");
+  squares.forEach((div) => (div.style.backgroundColor = "white"));
 }
 
-//de adaugat butin de reset
+
+// to do
+// Make styles for buttons
+// (idicator for on and off click)
+// indicator for no color chosen when booting for the first time 
